@@ -48,7 +48,7 @@ class RecipeRepositoryImpl (
                 steps= steps,
                 ingredients= ingredients
             )
-            val adding= recipeRef.document(RecId).set(recipe).await()
+            recipeRef.document(RecId).set(recipe).await()
           return  Responce.Success(true)
         }
         catch (e:Exception)

@@ -26,8 +26,8 @@ private val recipesUseCase: RecipeUseCases
         private set
     var deleteRecipeResponse by mutableStateOf<DeleteRecipeResponce>(Responce.Success(false))
         private set
-    var UpdateRecipeResponse by mutableStateOf<ChangeRecipeResponce>(Responce.Success(false))
-        private set
+//    var UpdateRecipeResponse by mutableStateOf<ChangeRecipeResponce>(Responce.Success(false))
+//        private set
 
     init {
            GetRecipesUseCase()
@@ -39,19 +39,21 @@ private val recipesUseCase: RecipeUseCases
     }
      fun DeleteRecipesUseCase(id:Int) {
          viewModelScope.launch {
+             deleteRecipeResponse= Responce.Loading
              deleteRecipeResponse = recipesUseCase.DeleteRecipesUseCase(id)
          }
      }
     fun AddRecipesUseCase(name:String, catagory:String, steps:String, ingredients:String) {
         viewModelScope.launch {
+            AddRecipeResponse=Responce.Loading
             AddRecipeResponse = recipesUseCase.AddRecipeUseCase(name,catagory,steps,ingredients)
         }
     }
-    fun EditRecipesUseCase(id:Int,name:String, catagory:String, steps:String, ingredients:String) {
+   /* fun EditRecipesUseCase(id:Int,name:String, catagory:String, steps:String, ingredients:String) {
         viewModelScope.launch {
             UpdateRecipeResponse = recipesUseCase.EditRecipesUseCase(id,name,catagory,steps,ingredients)
         }
-    }
+    }*/
 
 
 }
