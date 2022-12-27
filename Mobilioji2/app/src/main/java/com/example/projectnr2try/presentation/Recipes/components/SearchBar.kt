@@ -14,11 +14,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SearchAppBar(
-    text: String,
-    onTextChange: (String) -> Unit,
-    onSearchClicked: (String) -> Unit,
-) {
+fun SearchAppBar() {
     Surface(
         modifier = Modifier
             .width(230.dp)
@@ -32,14 +28,11 @@ fun SearchAppBar(
                 .width(100.dp)
                 .height(56.dp)
                 .background(Color.Transparent,CircleShape),
-            value = text,
+            value = "",
             onValueChange = {
-                onTextChange(it)
+
             },
             textStyle=TextStyle(color=Color.White),
-//            textStyle = TextStyle(
-//                fontSize = MaterialTheme.typography.subtitle1.fontSize
-//            ),
             leadingIcon = {
                 IconButton(
                     onClick = {}
@@ -52,16 +45,6 @@ fun SearchAppBar(
                     )
                 }
             },
-
-//            keyboardOptions = KeyboardOptions(
-//                imeAction = androidx.compose.ui.text.input.ImeAction.Search
-//            ),
-//            keyboardActions = KeyboardActions(
-//                onSearch = {
-//                    onSearchClicked(text)
-//                }
-//            ),
-
         )
     }
 }

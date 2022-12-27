@@ -21,7 +21,7 @@ import com.example.projectnr2try.presentation.Recipes.components.*
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun RecipeScreen(
-    viwmodel: RecipesViewModel= hiltViewModel(),
+    viewmodel: RecipesViewModel= hiltViewModel(),
     navController: NavController
 )
 {
@@ -54,14 +54,10 @@ fun RecipeScreen(
                                     modifier = Modifier.padding(25.dp,45.dp),
                                 )
                             }
-
-
                         }
                     }
                 }
             }
-
-
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,

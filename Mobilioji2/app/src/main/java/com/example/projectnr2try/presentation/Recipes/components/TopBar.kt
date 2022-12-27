@@ -19,7 +19,7 @@ fun TopBar() {
             color= Color.White,
             fontSize = 20.sp
         )
-        SearchAppBar(text = "Search", onTextChange = { /*TODO*/ }, onSearchClicked = { /*TODO*/ })
+        SearchAppBar()
 
     }
 }
