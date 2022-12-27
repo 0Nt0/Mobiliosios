@@ -8,12 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.projectnr2try.presentation.Recipes.RecipeAddScreen
-import com.example.projectnr2try.presentation.Recipes.RecipeScreen
 import com.example.projectnr2try.presentation.Recipes.AppScreens.Screens
 import com.example.projectnr2try.presentation.Recipes.DeleteScreen
 import com.example.projectnr2try.presentation.Recipes.ProfileScreen
 import com.example.projectnr2try.presentation.Recipes.AppScreens.LoginScreen
 import com.example.projectnr2try.presentation.Recipes.AppScreens.RegisterScreen
+import com.example.projectnr2try.presentation.Recipes.RecipeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
