@@ -6,6 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.projectnr2try.data.repository.RecipeApiRepoImpl
+//import com.example.projectnr2try.data.repository.RecipeApiRepoImpl
 import com.example.projectnr2try.domain.model.Responce
 import com.example.projectnr2try.domain.repository.AddRecipesResponce
 import com.example.projectnr2try.domain.repository.ChangeRecipeResponce
@@ -18,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecipesViewModel @Inject constructor(
-private val recipesUseCase: RecipeUseCases
+    private val recipesUseCase: RecipeUseCases
 ): ViewModel(){
     var RecipesResponse by mutableStateOf<RecipesResponce>(Responce.Loading)
         private set

@@ -22,6 +22,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.projectnr2try.domain.model.auth.Resource
@@ -36,7 +37,19 @@ fun ProfileScreen(
     navController: NavController
 ) {
     Scaffold(
+        bottomBar = { BottomBar(navController) },
         backgroundColor = Color.Black,
+        topBar = { TopAppBar(
+            backgroundColor = Color.Red,
+            modifier = Modifier.height(80.dp)
+        ) {
+            Text(
+                text = " Your profile",
+                color= Color.White,
+                textAlign = TextAlign.Center,
+                fontSize = 30.sp
+            )
+        }},
         content = {
             Column(
                 Modifier.fillMaxSize(),
@@ -44,6 +57,14 @@ fun ProfileScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             )
             {
+                viewmodel.currentUser?.displayName?.let { it1 ->
+                    Text(
+                        text = it1,
+                        textAlign = TextAlign.Center,
+                        color = Color.Yellow,
+                        fontSize = 25.sp
+                    )
+                }
                 Button(
                     onClick = {
                         viewmodel.LogOut()

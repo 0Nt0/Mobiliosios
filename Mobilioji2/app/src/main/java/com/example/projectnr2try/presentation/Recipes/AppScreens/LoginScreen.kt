@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -44,6 +45,14 @@ fun LoginScreen(
 
     Scaffold(
         backgroundColor = Color.Black,
+        topBar = {
+                 Column {
+                     Box{
+                        Image(painter = painterResource(id = R.drawable.unnamed), contentDescription ="Image",
+                        modifier = Modifier.padding(15.dp).fillMaxWidth().background(color = Color.Black,CircleShape))
+                     }
+                 }
+        },
         content = {
             Column(
                 Modifier.fillMaxSize(),

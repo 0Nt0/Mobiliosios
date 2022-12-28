@@ -2,7 +2,9 @@ package com.example.projectnr2try.di
 
 
 import com.example.projectnr2try.core.Constant.Recipe
+import com.example.projectnr2try.data.remote.RecipeAPI
 import com.example.projectnr2try.data.repository.AuthenticationRepoImpl
+import com.example.projectnr2try.data.repository.RecipeApiRepoImpl
 import com.example.projectnr2try.data.repository.RecipeRepositoryImpl
 import com.example.projectnr2try.domain.repository.AuthenticationRepo
 import com.example.projectnr2try.domain.repository.RecipeRepository
@@ -16,6 +18,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -53,6 +57,16 @@ object AppModule {
     @Provides
     fun firebaseAuthRepoProvide(impl: AuthenticationRepoImpl): AuthenticationRepo=impl
 
+    @Provides
+    @Singleton
+    fun ProvideRecipeApiRepo(api:RecipeAPI)= RecipeApiRepoImpl(api)
 
+    fun ProvidesApi():RecipeAPI{
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://api.spoonacular.com/recipes")
+            .build()
+            .create(RecipeAPI::class.java)
+    }
 
 }

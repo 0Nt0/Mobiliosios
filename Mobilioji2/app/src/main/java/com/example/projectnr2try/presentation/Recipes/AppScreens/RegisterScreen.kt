@@ -2,6 +2,7 @@ package com.example.projectnr2try.presentation.Recipes.AppScreens
 
 import android.annotation.SuppressLint
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -23,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.projectnr2try.R
 import com.example.projectnr2try.domain.model.auth.Resource
 import com.example.projectnr2try.presentation.Recipes.LoginRegisterViewModel
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
@@ -41,6 +44,14 @@ fun RegisterScreen(
     val registerFlow = viewmodel.registerFlow_.collectAsState()
 
     Scaffold(
+        topBar = {
+            Column {
+                Box{
+                    Image(painter = painterResource(id = R.drawable.unnamed), contentDescription ="Image",
+                        modifier = Modifier.padding(15.dp).fillMaxWidth().background(color = Color.Black,CircleShape))
+                }
+            }
+        },
         backgroundColor = Color.Black,
         content = {
             Column(
@@ -49,82 +60,92 @@ fun RegisterScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             )
             {
-                TextField(
-                    modifier = Modifier
-                        .width(300.dp)
-                        .height(70.dp)
-                        .background(Color.Red, CircleShape)
-                        .border(3.dp, Color.Yellow, CircleShape),
-                    value = username,
-                    onValueChange = {
-                        username = it
-                    },
-                    label = {
-                        Text(
-                            text = "USERNAME",
-                            textAlign = TextAlign.Center,
-                            color = Color.Yellow
+                Column(
+                    Modifier.padding(50.dp),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    TextField(
+                        modifier = Modifier
+                            .width(300.dp)
+                            .height(70.dp)
+                            .background(Color.Red, CircleShape)
+                            .border(3.dp, Color.Yellow, CircleShape),
+                        value = username,
+                        onValueChange = {
+                            username = it
+                        },
+                        label = {
+                            Text(
+                                text = "USERNAME",
+                                textAlign = TextAlign.Center,
+                                color = Color.Yellow
+                            )
+                        },
+                        textStyle = TextStyle(color = Color.White),
+                        keyboardOptions = KeyboardOptions(
+                            capitalization = KeyboardCapitalization.None,
+                            autoCorrect = false,
+                            keyboardType = KeyboardType.Email,
+                            imeAction = ImeAction.Done
                         )
-                    },
-                    textStyle = TextStyle(color = Color.White),
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.None,
-                        autoCorrect = false,
-                        keyboardType = KeyboardType.Email,
-                        imeAction = ImeAction.Done
                     )
-                )
 
-                TextField(
-                    modifier = Modifier
-                        .width(300.dp)
-                        .height(70.dp)
-                        .background(Color.Red, CircleShape)
-                        .border(3.dp, Color.Yellow, CircleShape),
-                    value = email,
-                    onValueChange = {
-                        email = it
-                    },
-                    label = {
-                        Text(text = "EMAIL",
-                            textAlign = TextAlign.Center,
-                            color = Color.Yellow)
+                    TextField(
+                        modifier = Modifier
+                            .width(300.dp)
+                            .height(70.dp)
+                            .background(Color.Red, CircleShape)
+                            .border(3.dp, Color.Yellow, CircleShape),
+                        value = email,
+                        onValueChange = {
+                            email = it
+                        },
+                        label = {
+                            Text(
+                                text = "EMAIL",
+                                textAlign = TextAlign.Center,
+                                color = Color.Yellow
+                            )
 
-                    },
-                    textStyle = TextStyle(color = Color.White),
+                        },
+                        textStyle = TextStyle(color = Color.White),
 
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.None,
-                        autoCorrect = false,
-                        keyboardType = KeyboardType.Password,
-                        imeAction = ImeAction.Done
+                        keyboardOptions = KeyboardOptions(
+                            capitalization = KeyboardCapitalization.None,
+                            autoCorrect = false,
+                            keyboardType = KeyboardType.Password,
+                            imeAction = ImeAction.Done
+                        )
                     )
-                )
-                TextField(
-                    modifier = Modifier
-                        .width(300.dp)
-                        .height(70.dp)
-                        .background(Color.Red, CircleShape)
-                        .border(3.dp, Color.Yellow, CircleShape),
-                    value = password,
-                    onValueChange = {
-                        password = it
-                    },
-                    label = {
-                        Text(text = "PASSWORD",
-                            textAlign = TextAlign.Center,
-                            color = Color.Yellow)
+                    TextField(
+                        modifier = Modifier
+                            .width(300.dp)
+                            .height(70.dp)
+                            .background(Color.Red, CircleShape)
+                            .border(3.dp, Color.Yellow, CircleShape),
+                        value = password,
+                        onValueChange = {
+                            password = it
+                        },
+                        label = {
+                            Text(
+                                text = "PASSWORD",
+                                textAlign = TextAlign.Center,
+                                color = Color.Yellow
+                            )
 
-                    },
-                    textStyle = TextStyle(color = Color.White),
+                        },
+                        textStyle = TextStyle(color = Color.White),
 
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.None,
-                        autoCorrect = false,
-                        keyboardType = KeyboardType.Password,
-                        imeAction = ImeAction.Done
+                        keyboardOptions = KeyboardOptions(
+                            capitalization = KeyboardCapitalization.None,
+                            autoCorrect = false,
+                            keyboardType = KeyboardType.Password,
+                            imeAction = ImeAction.Done
+                        )
                     )
-                )
+                }
                 Button(
                     onClick = {
                         viewmodel.Register(email,password,username)
