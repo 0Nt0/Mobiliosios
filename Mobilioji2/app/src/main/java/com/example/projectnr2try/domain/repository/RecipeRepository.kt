@@ -14,7 +14,7 @@ typealias ChangeRecipeResponce = Responce<Boolean>
 
 interface RecipeRepository {
     fun GetRecipesFromFirestore(): Flow<RecipesResponce>
-    suspend fun AddRecipeToFirestore(name: String, catagory: String, steps:String, ingredients:String): AddRecipesResponce
+    suspend fun AddRecipeToFirestore(UserId:String,name: String, catagory: String, steps:String, ingredients:String): AddRecipesResponce
     suspend fun DeleteRecipeFromFirestore(id: Int): DeleteRecipeResponce
     suspend fun ChangeRecipeInFirestore(id:Int, name:String, catagory:String, steps:String, ingredients:String): ChangeRecipeResponce
 

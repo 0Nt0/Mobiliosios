@@ -6,7 +6,7 @@ import com.example.projectnr2try.domain.repository.RecipeRepository
 class AddRecipe(
     private val repository: RecipeRepository
 ) {
-    suspend operator fun invoke(name: String, catagory:String, steps: String, ingredients:String): AddRecipesResponce {
-        return repository.AddRecipeToFirestore(name,catagory,steps,ingredients)
+    suspend operator fun invoke(userId:String ,name: String, catagory:String, steps: String, ingredients:String): AddRecipesResponce {
+        return repository.AddRecipeToFirestore(userId,name,catagory,steps,ingredients)
     }
 }

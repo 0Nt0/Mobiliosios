@@ -45,10 +45,10 @@ class RecipesViewModel @Inject constructor(
              deleteRecipeResponse = recipesUseCase.DeleteRecipesUseCase(id)
          }
      }
-    fun AddRecipesUseCase(name:String, catagory:String, steps:String, ingredients:String) {
+    fun AddRecipesUseCase(UserId:String,name:String, catagory:String, steps:String, ingredients:String) {
         viewModelScope.launch {
             AddRecipeResponse=Responce.Loading
-            AddRecipeResponse = recipesUseCase.AddRecipeUseCase(name,catagory,steps,ingredients)
+            AddRecipeResponse = recipesUseCase.AddRecipeUseCase(UserId,name,catagory,steps,ingredients)
         }
     }
    /* fun EditRecipesUseCase(id:Int,name:String, catagory:String, steps:String, ingredients:String) {

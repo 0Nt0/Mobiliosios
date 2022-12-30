@@ -34,6 +34,7 @@ class RecipeRepositoryImpl (
     }
 
     override suspend fun AddRecipeToFirestore(
+        userId:String,
         name: String,
         catagory: String,
         steps: String,
@@ -43,6 +44,7 @@ class RecipeRepositoryImpl (
             val RecId =recipeRef.document().id
             val recipe= Recipe(
                 id= RecId,
+                userId=userId,
                 name= name,
                 catagory= catagory,
                 steps= steps,
