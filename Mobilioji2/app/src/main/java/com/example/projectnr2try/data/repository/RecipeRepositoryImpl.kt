@@ -2,7 +2,6 @@ package com.example.projectnr2try.data.repository
 
 
 
-import android.net.Uri
 import com.example.projectnr2try.core.Constant.name
 import com.example.projectnr2try.domain.model.Recipe
 import com.example.projectnr2try.domain.model.Responce
@@ -11,7 +10,6 @@ import com.example.projectnr2try.domain.repository.ChangeRecipeResponce
 import com.example.projectnr2try.domain.repository.DeleteRecipeResponce
 import com.example.projectnr2try.domain.repository.RecipeRepository
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.tasks.await
@@ -62,7 +60,7 @@ class RecipeRepositoryImpl (
     }
 
 
-    override suspend fun DeleteRecipeFromFirestore(id: Int): DeleteRecipeResponce {
+    override suspend fun DeleteRecipeFromFirestore(id: String?): DeleteRecipeResponce {
         try {
             recipeRef.document(id.toString()).delete().await()
             return Responce.Success(true)

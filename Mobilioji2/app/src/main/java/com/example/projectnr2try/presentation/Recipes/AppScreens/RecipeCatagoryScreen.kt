@@ -17,13 +17,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.projectnr2try.presentation.Recipes.RecipesViewModel
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
 import com.example.projectnr2try.presentation.Recipes.components.Recipes
 import com.example.projectnr2try.presentation.Recipes.components.TopBar
 
 @Composable
 fun RecipeCatagoryScreen(
-    //viewmodel: LoginRegisterViewModel = hiltViewModel(),
+    viewmodel: RecipesViewModel = hiltViewModel(),
     navController: NavController,
     ItemId: String?
 ) {

@@ -6,7 +6,7 @@ import com.example.projectnr2try.domain.repository.RecipeRepository
 class DeleteRecipes(
     private  val repository: RecipeRepository
 ) {
-    suspend operator fun invoke(id: Int): DeleteRecipeResponce {
+    suspend operator fun invoke(id: String?): DeleteRecipeResponce {
         return repository.DeleteRecipeFromFirestore(id)
     }
 }

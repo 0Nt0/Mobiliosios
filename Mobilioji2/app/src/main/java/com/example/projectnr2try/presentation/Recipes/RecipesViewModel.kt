@@ -1,8 +1,6 @@
 package com.example.projectnr2try.presentation.Recipes
 
 
-import android.net.Uri
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -41,7 +39,7 @@ class RecipesViewModel @Inject constructor(
          }
 
     }
-     fun DeleteRecipesUseCase(id:Int) {
+     fun DeleteRecipesUseCase(id: String?) {
          viewModelScope.launch {
              deleteRecipeResponse= Responce.Loading
              deleteRecipeResponse = recipesUseCase.DeleteRecipesUseCase(id)
