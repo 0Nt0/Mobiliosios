@@ -8,10 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 
 @Composable
-fun TopBar() {
+fun TopBar(navController: NavController) {
     TopAppBar(backgroundColor = Color.Red,
               modifier = Modifier.height(80.dp)){
         Text(
@@ -19,7 +20,7 @@ fun TopBar() {
             color= Color.White,
             fontSize = 20.sp
         )
-        SearchAppBar()
+        SearchAppBar(navController)
 
     }
 }

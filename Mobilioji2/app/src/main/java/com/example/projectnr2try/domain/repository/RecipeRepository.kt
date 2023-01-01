@@ -2,6 +2,8 @@ package com.example.projectnr2try.domain.repository
 
 
 
+import android.net.Uri
+import androidx.compose.runtime.MutableState
 import com.example.projectnr2try.domain.model.Recipe
 import com.example.projectnr2try.domain.model.Responce
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +16,9 @@ typealias ChangeRecipeResponce = Responce<Boolean>
 
 interface RecipeRepository {
     fun GetRecipesFromFirestore(): Flow<RecipesResponce>
-    suspend fun AddRecipeToFirestore(UserId:String,name: String, catagory: String, steps:String, ingredients:String): AddRecipesResponce
+    suspend fun AddRecipeToFirestore(
+        UserId:String,
+        name: String, catagory: String, steps:String, ingredients:String): AddRecipesResponce
     suspend fun DeleteRecipeFromFirestore(id: Int): DeleteRecipeResponce
     suspend fun ChangeRecipeInFirestore(id:Int, name:String, catagory:String, steps:String, ingredients:String): ChangeRecipeResponce
 

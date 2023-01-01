@@ -2,10 +2,10 @@ package com.example.projectnr2try.presentation.Recipes
 
 import android.annotation.SuppressLint
 import android.widget.Toast
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -33,9 +33,11 @@ import com.example.projectnr2try.presentation.Recipes.components.TopBar
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ProfileScreen(
-    viewmodel: LoginRegisterViewModel = hiltViewModel(),
-    navController: NavController
+    Userviewmodel: LoginRegisterViewModel = hiltViewModel(),
+    navController: NavController,
+
 ) {
+
     Scaffold(
         bottomBar = { BottomBar(navController) },
         backgroundColor = Color.Black,
@@ -53,11 +55,11 @@ fun ProfileScreen(
         content = {
             Column(
                 Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             )
             {
-                viewmodel.currentUser?.displayName?.let { it1 ->
+                Userviewmodel.currentUser?.displayName?.let { it1 ->
                     Text(
                         text = it1,
                         textAlign = TextAlign.Center,
@@ -67,13 +69,13 @@ fun ProfileScreen(
                 }
                 Button(
                     onClick = {
-                        viewmodel.LogOut()
+                        Userviewmodel.LogOut()
                         navController.navigate("LogInScreen"){
                             popUpTo("LogInScreen") { inclusive = true }
                         }
                     },
                     modifier = Modifier
-                        .width(200.dp)
+                        .width(150.dp)
                         .height(70.dp)
                         .border(3.dp, Color.Yellow, CircleShape),
                     shape= RoundedCornerShape(35.dp),
@@ -83,6 +85,7 @@ fun ProfileScreen(
                         textAlign = TextAlign.Center,
                         color = Color.Yellow)
                 }
+
 
             }
         }

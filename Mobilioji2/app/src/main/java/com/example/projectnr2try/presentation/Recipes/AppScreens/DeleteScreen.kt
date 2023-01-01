@@ -18,7 +18,7 @@ fun DeleteScreen(
     Scaffold(
         bottomBar = { BottomBar(navController) },
         backgroundColor = Color.Black,
-        topBar = { TopBar() }
+        topBar = { TopBar(navController) }
     )
     {}
 

@@ -7,7 +7,5 @@ import kotlinx.coroutines.flow.Flow
 class GetRecipes(
     private val repository: RecipeRepository
 ) {
-    operator  fun invoke(): Flow<RecipesResponce> {
-        return repository.GetRecipesFromFirestore()
-    }
+    operator fun invoke()= repository.GetRecipesFromFirestore()
 }
