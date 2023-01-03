@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -33,6 +34,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
+import com.example.projectnr2try.R
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
 import com.example.projectnr2try.presentation.Recipes.components.TopBar
 
@@ -93,7 +95,8 @@ fun RecipeAddScreen(
                          )}
                         Spacer(modifier = Modifier.height(10.dp))
                         Button(onClick = { launcher.launch("image/*") }) {
-                            Text(text = "choose picture")
+                            Text(
+                                text= stringResource(id = R.string.Choose_Picture),)
                             
                         }
 
@@ -110,7 +113,7 @@ fun RecipeAddScreen(
                             },
                             label = {
                                 Text(
-                                    text = "Recipe name",
+                                    text = stringResource(id = R.string.Recipe_name),
                                     color = Color.Yellow,
                                     fontSize = 20.sp
                                 )
@@ -136,7 +139,7 @@ fun RecipeAddScreen(
                             },
                             label = {
                                 Text(
-                                    text = "Recipe catagory",
+                                    text = stringResource(id = R.string.Recipe_catagory),
                                     color = Color.Yellow,
                                     fontSize = 20.sp
                                 )
@@ -162,7 +165,7 @@ fun RecipeAddScreen(
                             },
                             label = {
                                 Text(
-                                    text = "Recipe ingredients",
+                                    text = stringResource(id = R.string.Recipe_ingredients),
                                     color = Color.Yellow,
                                     fontSize = 20.sp
                                 )
@@ -188,7 +191,7 @@ fun RecipeAddScreen(
                             },
                             label = {
                                 Text(
-                                    text = "Recipe steps",
+                                    text = stringResource(id = R.string.Recipe_steps),
                                     color = Color.Yellow,
                                     fontSize = 20.sp
                                 )
@@ -214,7 +217,7 @@ fun RecipeAddScreen(
                             colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red)
                         ) {
                             Text(
-                                text = "PUBLISH",
+                                text = stringResource(id = R.string.Publish_Recipe),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow
                             )

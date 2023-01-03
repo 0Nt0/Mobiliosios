@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -48,7 +49,10 @@ fun RegisterScreen(
             Column {
                 Box{
                     Image(painter = painterResource(id = R.drawable.unnamed), contentDescription ="Image",
-                        modifier = Modifier.padding(15.dp).fillMaxWidth().background(color = Color.Black,CircleShape))
+                        modifier = Modifier
+                            .padding(15.dp)
+                            .fillMaxWidth()
+                            .background(color = Color.Black, CircleShape))
                 }
             }
         },
@@ -77,7 +81,7 @@ fun RegisterScreen(
                         },
                         label = {
                             Text(
-                                text = "USERNAME",
+                                text = stringResource(id = R.string.Register_Username),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow
                             )
@@ -103,7 +107,7 @@ fun RegisterScreen(
                         },
                         label = {
                             Text(
-                                text = "EMAIL",
+                                text= stringResource(id = R.string.Email),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow
                             )
@@ -130,7 +134,7 @@ fun RegisterScreen(
                         },
                         label = {
                             Text(
-                                text = "PASSWORD",
+                                text= stringResource(id = R.string.Password),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow
                             )
@@ -157,12 +161,13 @@ fun RegisterScreen(
                     shape= RoundedCornerShape(35.dp),
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)
                 ) {
-                    Text(text = "REGISTER",
+                    Text(
+                        text= stringResource(id = R.string.Register),
                         textAlign = TextAlign.Center,
                         color = Color.Yellow)
                 }
                 Text(modifier = Modifier.clickable { navController.navigate("LogInScreen") },
-                    text = "Have an account? Log in!",
+                    text= stringResource(id = R.string.Have_An_account_Login),
                     textAlign = TextAlign.Center,
                     color = Color.Yellow)
                 registerFlow.value.let {

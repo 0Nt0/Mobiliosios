@@ -49,7 +49,10 @@ fun LoginScreen(
                  Column {
                      Box{
                         Image(painter = painterResource(id = R.drawable.unnamed), contentDescription ="Image",
-                        modifier = Modifier.padding(15.dp).fillMaxWidth().background(color = Color.Black,CircleShape))
+                        modifier = Modifier
+                            .padding(15.dp)
+                            .fillMaxWidth()
+                            .background(color = Color.Black, CircleShape))
                      }
                  }
         },
@@ -79,7 +82,8 @@ fun LoginScreen(
                         },
                         label = {
                             Text(
-                                text = "EMAIL",
+                              //  text = "EMAIL",
+                                text= stringResource(id = R.string.Email),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow
                             )
@@ -104,7 +108,8 @@ fun LoginScreen(
                             password = it
                         },
                         label = {
-                            Text(text = "PASSWORD",
+                            Text(//text = "PASSWORD",
+                                text= stringResource(id =R.string.Password ),
                                 textAlign = TextAlign.Center,
                                 color = Color.Yellow)
 
@@ -129,12 +134,14 @@ fun LoginScreen(
                     shape= RoundedCornerShape(35.dp),
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)
                 ) {
-                    Text(text = "LOG IN",
+                    Text(//text = "LOG IN",
+                        text= stringResource(id = R.string.LOGIN),
                         textAlign = TextAlign.Center,
                         color = Color.Yellow)
                 }
-                Text(modifier = Modifier.clickable { navController.navigate("RegisterScreen") },
-                    text = "Dont have an account? Sign up!",
+                Text(modifier = Modifier.clickable { navController.navigate(Screens.RegisterScreen.route) },
+                    text= stringResource(id = R.string.Dont_Have_Account_Text),
+                  //  text = "Dont have an account? Sign up!",
                     textAlign = TextAlign.Center,
                     color = Color.Yellow)
                 loginFlow.value.let {

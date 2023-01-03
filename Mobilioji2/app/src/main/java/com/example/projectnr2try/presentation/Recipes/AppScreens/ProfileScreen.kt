@@ -14,11 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.projectnr2try.R
 import com.example.projectnr2try.presentation.Recipes.AppScreens.Screens
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
 import com.example.projectnr2try.presentation.Recipes.components.Recipes
@@ -39,7 +41,7 @@ fun ProfileScreen(
             modifier = Modifier.height(80.dp)
         ) {
             Text(
-                text = " Your profile",
+                text= stringResource(id = R.string.Your_Prifile_Text),
                 color= Color.White,
                 textAlign = TextAlign.Center,
                 fontSize = 30.sp
@@ -67,7 +69,7 @@ fun ProfileScreen(
                 ){
                     Recipes(recipeContent = {recipes ->
                         LazyColumn(modifier= Modifier
-                           // .fillMaxSize()
+                            // .fillMaxSize()
                             .padding(10.dp)
                             .border(5.dp, color = Color.Black)
                         )
@@ -135,7 +137,8 @@ fun ProfileScreen(
                         shape= RoundedCornerShape(35.dp),
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue)
                     ) {
-                        Text(text = "LOG OUT",
+                        Text(
+                            text= stringResource(id = R.string.LOGOUT),
                             textAlign = TextAlign.Center,
                             color = Color.Yellow)
                     }

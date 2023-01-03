@@ -16,7 +16,7 @@ import com.example.projectnr2try.presentation.Recipes.RecipeScreen
         val navController = rememberNavController()
         NavHost(navController = navController, startDestination = Screens.LoginScreen.route)
         {
-            composable(Screens.LoginScreen.route) {
+            composable(Screens.RegisterScreen.route) {
                 RegisterScreen(navController = navController)
             }
             composable("LogInScreen") {

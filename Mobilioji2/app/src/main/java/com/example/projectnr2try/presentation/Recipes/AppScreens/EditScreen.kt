@@ -13,6 +13,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.projectnr2try.R
 import com.example.projectnr2try.presentation.Recipes.LoginRegisterViewModel
 import com.example.projectnr2try.presentation.Recipes.RecipesViewModel
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
@@ -51,7 +53,8 @@ fun EditScreen(
                     .fillMaxSize()
                     .padding(16.dp),
             ){
-                Text(text = "Recipe edit",
+                Text(//text = "Recipe edit",
+                    text = stringResource(id= R.string.Recipe_Edit),
                     color = Color.Yellow,
                     fontSize = 25.sp)
                     Recipes(recipeContent = {recipes ->
@@ -84,7 +87,7 @@ fun EditScreen(
                                         },
                                         label = {
                                             Text(
-                                                text = "Recipe name",
+                                                text= stringResource(id = R.string.Recipe_name),
                                                 color = Color.Yellow,
                                                 fontSize = 20.sp
                                             )
@@ -110,7 +113,7 @@ fun EditScreen(
                                         },
                                         label = {
                                             Text(
-                                                text = "Recipe catagory",
+                                                text= stringResource(id = R.string.Recipe_catagory),
                                                 color = Color.Yellow,
                                                 fontSize = 20.sp
                                             )
@@ -136,7 +139,7 @@ fun EditScreen(
                                         },
                                         label = {
                                             Text(
-                                                text = "Recipe ingredients",
+                                                text= stringResource(id = R.string.Recipe_ingredients),
                                                 color = Color.Yellow,
                                                 fontSize = 20.sp
                                             )
@@ -162,7 +165,7 @@ fun EditScreen(
                                         },
                                         label = {
                                             Text(
-                                                text = "Recipe steps",
+                                                text= stringResource(id = R.string.Recipe_steps),
                                                 color = Color.Yellow,
                                                 fontSize = 20.sp
                                             )
@@ -189,7 +192,7 @@ fun EditScreen(
                                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red)
                                     ) {
                                         Text(
-                                            text = "CHANGE",
+                                            text= stringResource(id = R.string.Change),
                                             textAlign = TextAlign.Center,
                                             color = Color.Yellow
                                         )

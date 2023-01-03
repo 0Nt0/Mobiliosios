@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">ProjectNr2Try</string>
+    <string name="Recipe_app_placeholder">"Recipe app    "</string>
+    <string name="Recipe_Edit">Recipe edit</string>
+    <string name="Recipe_name">Recipe name</string>
+    <string name="Recipe_catagory">Recipe catagory</string>
+    <string name="Recipe_ingredients">Recipe ingredients</string>
+    <string name="Recipe_steps">Recipe steps</string>
+    <string name="Change">CHANGE</string>
+    <string name="Email">EMAIL</string>
+    <string name="Password">PASSWORD</string>
+    <string name="Dont_Have_Account_Text">\"Dont have an account? Sign up!\"</string>
+    <string name="LOGIN">LOG IN</string>
+    <string name="Your_Prifile_Text">Your profile</string>
+    <string name="LOGOUT">LOG OUT</string>
+    <string name="Choose_Picture">choose picture</string>
+    <string name="Publish_Recipe">PUBLISH</string>
+    <string name="Register_Username">USERNAME</string>
+    <string name="Register">REGISTER</string>
+    <string name="Have_An_account_Login">Have an account? Log in!</string>
+
+    <string-array name="Dishes">
+        <item>Cold</item>
+        <item>Soup</item>
+        <item>Desert</item>
+        <item>Drinks</item>
+        <item>Pizzas</item>
+        <item>Chicken</item>
+        <item>Pork</item>
+
+    </string-array>
+
 </resources>

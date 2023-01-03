@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="Recipe_app_placeholder">"Receptų programa"</string>
+    <string name="Recipe_Edit">Recepto pakeitimas</string>
+    <string name="Recipe_name">Recepto pavadinimas</string>
+    <string name="Recipe_catagory">Recepto kategorija</string>
+    <string name="Recipe_steps">Recepto žingsniai</string>
+    <string name="Recipe_ingredients">Recepto ingredientai</string>
+    <string name="Change">PAKEISTI</string>
+    <string name="Email">EL.PAŠTAS</string>
+    <string name="Password">SLAPTAŽODIS</string>
+    <string name="Dont_Have_Account_Text">Neturite paskyros? Susikurkite!</string>
+    <string name="LOGIN">PRISIJUNGTI</string>
+    <string name="Your_Prifile_Text">Jūsų profilis</string>
+    <string name="LOGOUT">ATSIJUNGTI</string>
+    <string name="Choose_Picture">Pasirinkite paveikslėlį</string>
+    <string name="Publish_Recipe">PRIDĖTI</string>
+    <string name="Register_Username">SLAPYVARDIS</string>
+    <string name="Register">REGISTRUOTIS</string>
+    <string name="Have_An_account_Login">Turite paskyrą? Prisijunkit!</string>
+
+    <string-array name="Dishes">
+<item>Šalti</item>
+        <item>Sriubos</item>
+        <item>Desertai</item>
+        <item>Gėrimai</item>
+        <item>Picos</item>
+        <item>Vištiena</item>
+        <item>Kiauliena</item>
+
+    </string-array>
+
+<!--    <string name="Cold_Dishes"></string>-->
+<!--    <string name="Soup_Dishes">Sriubos</string>-->
+<!--    <string name="Desert_Dishes">Desertai</string>-->
+<!--    <string name="Drinks_Dishes">Gėrimai</string>-->
+<!--    <string name="Pizzas_Dishes">Picos</string>-->
+<!--    <string name="Chicken_Dishes">Vištiena</string>-->
+<!--    <string name="Pork_Dishes">Kiauliena</string>-->
+
+
+
+</resources>

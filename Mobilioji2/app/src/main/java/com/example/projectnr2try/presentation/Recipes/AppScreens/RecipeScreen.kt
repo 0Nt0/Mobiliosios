@@ -18,11 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
+import com.example.projectnr2try.R
 import com.example.projectnr2try.presentation.Recipes.AppScreens.Screens
 import com.example.projectnr2try.presentation.Recipes.components.*
 
@@ -33,6 +36,7 @@ fun RecipeScreen(
     navController: NavController
 )
 {
+    val Catagories= stringArrayResource(id = R.array.Dishes)
     Scaffold(
         bottomBar = { BottomBar(navController) },
         backgroundColor = Color.Black,
@@ -49,21 +53,32 @@ fun RecipeScreen(
                     LazyRow(state= rememberLazyListState())
                     {
                         items(AllFoods()){item ->
-                            Column(modifier = Modifier
-                                .height(160.dp)
-                                .width(160.dp)
-                                .padding(10.dp)
-                                .border(3.dp, Color.White)
-                                .clickable {
-                                    navController.navigate(Screens.RecipeCatagoryScreen.route+"/${item.ch}")
-                                }
+                            for (catag in Catagories)
+                            {if("$item"==catag) {
+                                Row(modifier = Modifier
+                                    .height(170.dp)
+                                    .width(170.dp)
+                                    .padding(10.dp)
+                                    .border(3.dp, Color.White)
+                                    .clickable {
+                                        navController.navigate(Screens.RecipeCatagoryScreen.route + "/${item}")
+                                    }
                                 ) {
-                                Text(text = "$item",
-                                    color=Color.White,
-                                    fontSize = 25.sp,
-                                    modifier = Modifier.padding(25.dp,45.dp),
-                                )
-                            }
+
+
+                                    Text(
+                                        //text = "${item.ch}",
+                                        text = catag,
+                                        color = Color.White,
+                                        fontSize = 25.sp,
+                                        modifier = Modifier.padding(25.dp, 45.dp),
+                                    )
+
+
+                                }
+
+                            }}
+
 
                         }
                     }
@@ -77,8 +92,8 @@ fun RecipeScreen(
             {
                 Recipes(recipeContent = {recipes ->
                     LazyColumn(modifier= Modifier
-                                        .fillMaxSize()
-                                        .padding(padding)
+                        .fillMaxSize()
+                        .padding(padding)
                         .border(5.dp, color = Color.Black)
                                         )
 
@@ -92,13 +107,14 @@ fun RecipeScreen(
                                          .padding(
                                              bottom = 8.dp
                                          )
-                                         .border(3.dp,color=Color.Yellow)
+                                         .border(3.dp, color = Color.Yellow)
                                          .fillMaxWidth()
                                          .clickable { navController.navigate(Screens.RecipeInfoScreen.route + "/${recipe.id}") },
                                      elevation = 3.dp,
                                  ) {
                                      Row(
-                                         modifier = Modifier.fillMaxWidth()
+                                         modifier = Modifier
+                                             .fillMaxWidth()
                                              .padding(3.dp)
                                              .background(Color.Black),
                                          verticalAlignment = Alignment.CenterVertically,
