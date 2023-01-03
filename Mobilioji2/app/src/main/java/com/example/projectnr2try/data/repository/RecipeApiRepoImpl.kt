@@ -11,9 +11,9 @@ class RecipeApiRepoImpl @Inject constructor(
     private val api: RecipeAPI
 )
 {
-    suspend fun  GetRecipeList(limit: Int, offset: Int): Resource<RecipeAPIInfo> {
+    suspend fun  GetRecipeList(): Resource<RecipeAPIInfo> {
         val responce =try{
-            api.GetAllRecipes(limit,offset)
+            api.GetAllRecipes()
         }catch (e:Exception)
         {
             return  Resource.Error("smth happaned")

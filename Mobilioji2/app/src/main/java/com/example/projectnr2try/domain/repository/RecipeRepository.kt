@@ -18,7 +18,6 @@ interface RecipeRepository {
         UserId:String,
         name: String, catagory: String, steps:String, ingredients:String): AddRecipesResponce
     suspend fun DeleteRecipeFromFirestore(id: String?): DeleteRecipeResponce
-    suspend fun ChangeRecipeInFirestore(id:Int, name:String, catagory:String, steps:String, ingredients:String): ChangeRecipeResponce
-
+    suspend fun ChangeRecipeInFirestore(id: String,userId:String, name:String, catagory:String, steps:String, ingredients:String): ChangeRecipeResponce
 
 }

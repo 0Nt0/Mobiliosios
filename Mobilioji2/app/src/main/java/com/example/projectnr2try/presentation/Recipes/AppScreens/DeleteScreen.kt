@@ -7,10 +7,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,16 +18,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.projectnr2try.presentation.Recipes.LoginRegisterViewModel
+import com.example.projectnr2try.presentation.Recipes.RecipesViewModel
 import com.example.projectnr2try.presentation.Recipes.components.BottomBar
 import com.example.projectnr2try.presentation.Recipes.components.Recipes
 import com.example.projectnr2try.presentation.Recipes.components.TopBar
 
+
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun DeleteScreen(
-    viewmodel: RecipesViewModel= hiltViewModel(),
+    viewmodel: RecipesViewModel = hiltViewModel(),
     navController: NavController,
-    UserviewModel: LoginRegisterViewModel= hiltViewModel(),
+    UserviewModel: LoginRegisterViewModel = hiltViewModel(),
 ) {
     Scaffold(
         bottomBar = { BottomBar(navController) },
@@ -59,9 +61,8 @@ fun DeleteScreen(
                                                 bottom = 8.dp
                                             )
                                             .border(3.dp, color = Color.Yellow)
-                                            .fillMaxWidth()
-                                        .clickable {
-                                            viewmodel.DeleteRecipesUseCase(recipe.id) },
+                                            .fillMaxWidth(),
+
                                         elevation = 3.dp,
                                     ) {
                                         Row(
@@ -82,6 +83,13 @@ fun DeleteScreen(
                                                     color = Color.White,
                                                     fontSize = 15.sp
                                                 )
+                                                IconButton(onClick = { viewmodel.DeleteRecipesUseCase(recipe.id) }) {
+                                                    Icon(imageVector = Icons.Outlined.Delete,
+                                                        contentDescription = "Delete",
+                                                        modifier=Modifier.size(30.dp),
+                                                        tint =Color.Yellow
+                                                    )
+                                                }
                                             }
                                             Spacer(
                                                 modifier = Modifier.weight(1f)

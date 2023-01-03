@@ -12,6 +12,7 @@ import com.example.projectnr2try.presentation.Recipes.RecipeAddScreen
 import com.example.projectnr2try.presentation.Recipes.DeleteScreen
 import com.example.projectnr2try.presentation.Recipes.ProfileScreen
 import com.example.projectnr2try.presentation.Recipes.RecipeScreen
+import com.example.projectnr2try.util.RecipeApplication
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.Route
 
@@ -25,41 +26,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun RecipeApplication()
-{
 
-    val navController= rememberNavController()
-    NavHost(navController = navController, startDestination = Screens.LoginScreen.route)
-    {
-        composable(Screens.LoginScreen.route){
-            RegisterScreen(navController=navController)
-        }
-        composable("LogInScreen"){
-            LoginScreen(navController = navController)
-        }
-        composable(Screens.RecipeScreen.route){
-            RecipeScreen(navController = navController)
-        }
-        composable(Screens.RecipeAddScreen.route){
-            RecipeAddScreen(navController = navController)
-        }
-        composable(Screens.DeleteScreen.route){
-            DeleteScreen(navController= navController)
-        }
-        composable(Screens.ProfileScreen.route){
-            ProfileScreen(navController= navController)
-        }
-        composable(Screens.RecipeCatagoryScreen.route+"/{name}"){
-           navBackStack-> val id= navBackStack.arguments?.getString("name")
-            RecipeCatagoryScreen(navController = navController, ItemId = id)
-        }
-        composable(Screens.RecipeInfoScreen.route+"/{name}"){
-                navBackStack-> val id= navBackStack.arguments?.getString("name")
-            RecipeInfoScreen(navController = navController, ItemId = id)
-        }
 
-    }
 
-}
 

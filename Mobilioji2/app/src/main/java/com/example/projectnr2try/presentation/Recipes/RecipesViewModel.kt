@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 //import com.example.projectnr2try.data.repository.RecipeApiRepoImpl
 import com.example.projectnr2try.domain.model.Responce
 import com.example.projectnr2try.domain.repository.AddRecipesResponce
+import com.example.projectnr2try.domain.repository.ChangeRecipeResponce
 import com.example.projectnr2try.domain.repository.DeleteRecipeResponce
 import com.example.projectnr2try.domain.repository.RecipesResponce
 import com.example.projectnr2try.domain.use_case.RecipeUseCases
@@ -26,8 +27,8 @@ class RecipesViewModel @Inject constructor(
         private set
     var deleteRecipeResponse by mutableStateOf<DeleteRecipeResponce>(Responce.Success(false))
         private set
-//    var UpdateRecipeResponse by mutableStateOf<ChangeRecipeResponce>(Responce.Success(false))
-//        private set
+    var UpdateRecipeResponse by mutableStateOf<ChangeRecipeResponce>(Responce.Success(false))
+        private set
 
     init {
            GetRecipesUseCase()
@@ -51,11 +52,11 @@ class RecipesViewModel @Inject constructor(
             AddRecipeResponse = recipesUseCase.AddRecipeUseCase(UserId,name,catagory,steps,ingredients)
         }
     }
-   /* fun EditRecipesUseCase(id:Int,name:String, catagory:String, steps:String, ingredients:String) {
+    fun EditRecipesUseCase(id: String,userId:String, name:String, catagory:String, steps:String, ingredients:String) {
         viewModelScope.launch {
-            UpdateRecipeResponse = recipesUseCase.EditRecipesUseCase(id,name,catagory,steps,ingredients)
+            UpdateRecipeResponse = recipesUseCase.EditRecipesUseCase(id,userId,name,catagory,steps,ingredients)
         }
-    }*/
+    }
 
 
 }

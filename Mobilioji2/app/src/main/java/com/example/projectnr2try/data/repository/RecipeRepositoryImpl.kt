@@ -72,23 +72,26 @@ class RecipeRepositoryImpl (
     }
 
     override suspend fun ChangeRecipeInFirestore(
-        id: Int,
+        id: String,
+        userId:String,
         name: String,
         catagory: String,
         steps: String,
         ingredients: String
     ): ChangeRecipeResponce {
-
         try{
-            if(id== recipeRef.document().id.toInt())
-            { val recipeUpdate=Recipe(
-                name = name,
-                catagory = catagory,
-                steps = steps,
-                ingredients = ingredients
-            )
-                recipeRef.document(id.toString()).set(recipeUpdate).await()
-            }
+
+                val recipeUpdate = Recipe(
+                    id=id,
+                    userId = userId,
+                    name = name,
+                    catagory = catagory,
+                    steps = steps,
+                    ingredients = ingredients
+                )
+                recipeRef.document(id).set(recipeUpdate).await()
+
+
             return Responce.Success(true)
         }
         catch (e:Exception)

@@ -9,4 +9,5 @@ sealed class Screens(var route:String){
     object DeleteScreen : Screens("DeleteScreen")
     object ProfileScreen : Screens("ProfileScreen")
     object RecipeInfoScreen:Screens("RecipeInfoScreen")
+    object EditScreen:Screens("EditScreen")
 }
